@@ -3,13 +3,24 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "prepare": "husky install",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "prettier:check": "prettier --check . && prettier --check ./**/*.astro",
+    "prettier:write": "prettier --write . && prettier --write ./**/*.astro"
   },
   "dependencies": {
     "astro": "^2.10.14"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.2",
+    "prettier-plugin-astro": "^0.12.0"
   }
 }
