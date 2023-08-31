@@ -3,12 +3,11 @@
 // was just significantly easier.
 interface Props extends astroHTML.JSX.ImgHTMLAttributes {}
 
+import { getUrl } from "../utils/getUrl";
+
 const props = Astro.props;
 
-props.src =
-  process.env.NODE_ENV === "production" && props?.src?.startsWith("/")
-    ? `/lost-crusade${props.src}`
-    : props.src;
+props.src = getUrl(props.src ?? "");
 ---
 
 <img {...props} />
