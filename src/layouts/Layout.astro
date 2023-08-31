@@ -3,6 +3,8 @@ interface Props {
   title: string;
 }
 
+import Nav from "../components/Nav.astro";
+
 const { title } = Astro.props;
 ---
 
@@ -10,13 +12,19 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta
+      name="description"
+      content="Companion for Warhammer 40: Lost Crusade"
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <Nav />
+    <main>
+      <slot />
+    </main>
   </body>
 </html>

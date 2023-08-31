@@ -1,0 +1,34 @@
+---
+const currentPath = Astro.url.pathname;
+
+const paths = [
+  {
+    href: "/mechanics",
+    name: "Mechanics",
+    isActive: currentPath.startsWith("/mechanics"),
+  },
+  {
+    href: "/heroes",
+    name: "Heroes",
+    isActive: currentPath.startsWith("/heroes"),
+  },
+];
+---
+
+<nav class="flex border-b-2 border-gray-200 drop-shadow-lg justify-center">
+  <ol class="flex flex-row">
+    {
+      paths.map((path) => (
+        <li
+          class={`drop-shadow-none underline underline-offset-4 ${
+            path.isActive && "font-bold"
+          } ${
+            !path.isActive && "hover:text-blue-700 hover:font-semibold"
+          } m-5 text-lg`}
+        >
+          <a href={path.href}>{path.name}</a>
+        </li>
+      ))
+    }
+  </ol>
+</nav>
