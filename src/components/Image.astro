@@ -1,0 +1,14 @@
+---
+// I really tried to do this with the astro:images API, but this
+// was just significantly easier.
+interface Props extends astroHTML.JSX.ImgHTMLAttributes {}
+
+const props = Astro.props;
+
+props.src =
+  process.env.NODE_ENV === "production" && props?.src?.startsWith("/")
+    ? `/lost-crusade${props.src}`
+    : props.src;
+---
+
+<img {...props} />

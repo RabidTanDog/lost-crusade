@@ -1,4 +1,6 @@
 ---
+import Image from "./Image.astro";
+
 interface Props {
   status: string;
   message: string;
@@ -8,7 +10,7 @@ const { status, message } = Astro.props;
 ---
 
 <div class="flex flex-col mt-10 items-center justify-center">
-  <img src="./images/emblems/inquisitor.svg" alt="404" class="w-72" />
+  <Image src="/images/emblems/inquisitor.svg" alt="Test" class="w-72" />
   <h2 class="font-bold text-red-700 text-7xl">{status}</h2>
   <p class="font-bold text-red-700 text-3xl">ORDO HERECTIUS</p>
   <p class="font-light text-xl text-gray-500">
