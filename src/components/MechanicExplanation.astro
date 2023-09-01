@@ -1,0 +1,9 @@
+---
+import Container from "./MechanicContainer.astro";
+---
+
+<Container color="violet" title="Explanation">
+  <div class="[&>p]:pb-2 [&>ol]:list-inside [&>ol]:list-decimal [&>ol]:pb-2">
+    <slot />
+  </div>
+</Container>

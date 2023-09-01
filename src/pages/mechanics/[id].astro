@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Explanation from "../../components/MechanicExplanation.astro";
+import Header from "../../components/MechanicHeader.astro";
+import HeroList from "../../components/MechanicHeroList.astro";
+import Note from "../../components/MechanicNote.astro";
+import Versus from "../../components/MechanicVersus.astro";
+import type { InferGetStaticPropsType } from "astro";
+
+export async function getStaticPaths() {
+  return await getCollection("mechanics").then((entires) =>
+    entires.map((entry) => ({
+      params: { id: entry.slug },
+      props: { entry },
+    })),
+  );
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={`Mechanic: ${entry.data.title}`}>
+  <Header title={entry.data.title} id={entry.slug} />
+
+  <div class="flex flex-row">
+    <div class="flex flex-col basis-1/2">
+      <HeroList heroes={entry.data.heroes} />
+
+      <Explanation>
+        <Content />
+      </Explanation>
+    </div>
+
+    <div class="flex flex-col basis-1/2">
+      <Note note={entry.data.note} />
+
+      <Versus variant="strongAgainst" versus={entry.data.strongAgainst} />
+
+      <Versus variant="weakAgainst" versus={entry.data.weakAgainst} />
+    </div>
+  </div>
+</Layout>

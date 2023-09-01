@@ -1,0 +1,45 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import Container from "./MechanicContainer.astro";
+
+interface Props {
+  variant: "weakAgainst" | "strongAgainst";
+  versus: CollectionEntry<"mechanics">["data"]["strongAgainst"];
+}
+
+const { variant, versus } = Astro.props;
+
+const color = variant === "strongAgainst" ? "green" : "red";
+const title = variant === "strongAgainst" ? "Counters" : "Weaknesses";
+const mechanics = await getCollection("mechanics");
+
+const findMechanicName = (slug: string) => {
+  return mechanics.find((mechanic) => mechanic.slug === slug)?.data.title;
+};
+---
+
+<Container color={color} title={title}>
+  <div class="flex flex-col">
+    {
+      (!versus || versus?.length === 0) && (
+        <span class="ml-5 text-gray-500">None</span>
+      )
+    }
+    {
+      versus?.map((mechanic) => (
+        <div class="flex flex-row">
+          <img
+            class="mx-5 w-10"
+            src={`/images/icons/mechanics/${mechanic.id.slug}.svg`}
+          />
+          <div class="flex flex-col">
+            <h3 class="font-bold text-xl">
+              {findMechanicName(mechanic.id.slug)}
+            </h3>
+            <span class="text-gray-500">{mechanic.reason}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Container>

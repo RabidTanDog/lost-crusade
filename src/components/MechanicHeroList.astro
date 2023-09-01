@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Container from "./MechanicContainer.astro";
+
+interface Props {
+  heroes: CollectionEntry<"mechanics">["data"]["heroes"];
+}
+
+const { heroes } = Astro.props;
+---
+
+<Container color="sky" title="Applicable heroes">
+  <div class="flex flex-wrap row-auto">
+    {
+      heroes.map((hero) => (
+        <img
+          class="bg-gradient-to-b rounded-md from-slate-300 to-slate-600 border-slate-300 border-2 mr-2 mb-2 w-20 last:mr-0"
+          width="76"
+          height="101"
+          alt={hero.id}
+          src={`/images/heroes/${hero.id}.png`}
+        />
+      ))
+    }
+  </div>
+</Container>

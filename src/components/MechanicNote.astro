@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Container from "./MechanicContainer.astro";
+
+interface Props {
+  note: CollectionEntry<"mechanics">["data"]["note"];
+}
+
+const { note } = Astro.props;
+---
+
+{
+  note && (
+    <Container color="amber" title="Note">
+      {note}
+    </Container>
+  )
+}

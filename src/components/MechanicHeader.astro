@@ -1,0 +1,19 @@
+---
+import { getUrl } from "../utils/getUrl";
+interface Props {
+  id: string;
+  title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<div
+  class="bg-white rounded-md flex flex-row border-gray-200 border-2 m-4 mb-4 p-4 drop-shadow-md"
+>
+  <img
+    class="h-10 mr-5 w-10"
+    src={getUrl(`/images/icons/mechanics/${id}.svg`)}
+  />
+  <h2 class="font-semibold text-3xl">{title}</h2>
+</div>
