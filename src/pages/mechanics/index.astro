@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+import Image from "../../components/Image.astro";
+import { getUrl } from "../../utils/getUrl";
+
+const mechanics = await getCollection("mechanics");
+---
+
+<Layout title={"Mechanics"} direction="row">
+  {
+    mechanics.map((mechanic) => (
+      <a
+        class="bg-white rounded-md flex flex-col border-gray-200 border-2 m-4 p-4 w-48 just items-center hover:drop-shadow-highlight"
+        href={`./mechanics/${mechanic.slug}`}
+      >
+        <Image
+          src={getUrl(`/images/icons/mechanics/${mechanic.slug}.svg`)}
+          class="mb-2 w-20"
+        />
+        <h3 class="font-bold text-xl">{mechanic.data.title}</h3>
+      </a>
+    ))
+  }
+</Layout>

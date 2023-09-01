@@ -1,11 +1,13 @@
 ---
 interface Props {
   title: string;
+  direction?: "row" | "column";
 }
 
 import Nav from "../components/Nav.astro";
 
-const { title } = Astro.props;
+const { title, direction } = Astro.props;
+const flexDirection = direction === "row" ? "flex-row" : "flex-col";
 ---
 
 <!doctype html>
@@ -23,7 +25,9 @@ const { title } = Astro.props;
   </head>
   <body>
     <Nav />
-    <main>
+    <main
+      class={`flex ${flexDirection} flex-wrap max-w-6xl m-auto justify-center`}
+    >
       <slot />
     </main>
   </body>
