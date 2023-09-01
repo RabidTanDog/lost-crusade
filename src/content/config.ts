@@ -4,6 +4,7 @@ const heroes = defineCollection({
   type: "data",
   schema: z.object({
     name: z.string(),
+    rarity: z.enum(["Rare", "Epic", "Legendary"]),
   }),
 });
 
