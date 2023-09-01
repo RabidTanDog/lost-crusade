@@ -1,16 +1,18 @@
 ---
+import { getUrl } from "../utils/getUrl";
+
 const currentPath = Astro.url.pathname;
 
 const paths = [
   {
-    href: "/mechanics",
+    href: getUrl("/mechanics"),
     name: "Mechanics",
-    isActive: currentPath.startsWith("/mechanics"),
+    isActive: currentPath.startsWith(getUrl("/mechanics")),
   },
   {
-    href: "/heroes",
+    href: getUrl("/heroes"),
     name: "Heroes",
-    isActive: currentPath.startsWith("/heroes"),
+    isActive: currentPath.startsWith(getUrl("/mechanics")),
   },
 ];
 ---
