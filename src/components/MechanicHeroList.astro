@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Container from "./MechanicContainer.astro";
+import { getUrl } from "../utils/getUrl";
 
 interface Props {
   heroes: CollectionEntry<"mechanics">["data"]["heroes"];
@@ -18,7 +19,7 @@ const { heroes } = Astro.props;
           width="76"
           height="101"
           alt={hero.id}
-          src={`/images/heroes/${hero.id}.png`}
+          src={getUrl(`/images/heroes/${hero.id}.png`)}
         />
       ))
     }

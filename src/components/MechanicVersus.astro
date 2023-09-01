@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import Container from "./MechanicContainer.astro";
+import { getUrl } from "../utils/getUrl";
 
 interface Props {
   variant: "weakAgainst" | "strongAgainst";
@@ -30,7 +31,7 @@ const findMechanicName = (slug: string) => {
         <div class="flex flex-row">
           <img
             class="mx-5 w-10"
-            src={`/images/icons/mechanics/${mechanic.id.slug}.svg`}
+            src={getUrl(`/images/icons/mechanics/${mechanic.id.slug}.svg`)}
           />
           <div class="flex flex-col">
             <h3 class="font-bold text-xl">
