@@ -18,16 +18,17 @@ const paths = [
 ---
 
 <nav
-  class="bg-white flex border-b-2 border-gray-200 mb-4 top-0 z-50 drop-shadow-md justify-center sticky"
+  class="bg-white flex border-b-2 border-gray-200 mb-4 top-0 z-50 drop-shadow-md justify-center sticky dark:bg-slate-700 dark:border-gray-700"
 >
   <ol class="flex flex-row">
     {
       paths.map((path) => (
         <li
-          class={`drop-shadow-none underline underline-offset-4 ${
+          class={`drop-shadow-none underline underline-offset-4  ${
             path.isActive && "font-bold"
           } ${
-            !path.isActive && "hover:text-blue-700 hover:font-semibold"
+            !path.isActive &&
+            "hover:text-blue-700 dark:hover:text-blue-300  hover:font-semibold"
           } m-5 text-lg`}
         >
           <a href={path.href}>{path.name}</a>

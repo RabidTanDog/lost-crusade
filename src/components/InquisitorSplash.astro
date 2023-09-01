@@ -13,15 +13,15 @@ const { status, message } = Astro.props;
   <img
     src={getUrl("/images/emblems/inquisitor.svg")}
     alt="Inquisitor emblem"
-    class="mb-4 w-32 md:w-52 lg:w-72"
+    class="mb-4 w-32 md:w-52 lg:w-72 dark:invert"
   />
   <div class="flex flex-col mx-2 text-center md:max-w-xl md:text-left md:mr-10">
     <h2 class="font-bold text-red-700 text-5xl md:text-7xl">{status}</h2>
     <p class="font-bold text-red-700 text-3xl">ORDO HERECTIUS</p>
-    <p class="font-light text-xl text-gray-500">
+    <p class="font-light text-xl text-gray-500 dark:text-gray-300">
       [ 999.M41 - Documentum obsignatum ]
     </p>
-    <p class="font-thin mt-10 text-xl text-gray-500">
+    <p class="font-thin mt-10 text-xl text-gray-500 dark:text-gray-300">
       By order of Grand Inquisitor <span class="font-bold">[REDACTED]</span>, {
         message
       }

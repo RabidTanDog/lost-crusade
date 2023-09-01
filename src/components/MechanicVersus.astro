@@ -23,7 +23,7 @@ const findMechanicName = (slug: string) => {
   <div class="flex flex-col">
     {
       (!versus || versus?.length === 0) && (
-        <span class="ml-5 text-gray-500">None</span>
+        <span class="ml-5 text-gray-500 dark:text-gray-300">None</span>
       )
     }
     {
@@ -37,7 +37,9 @@ const findMechanicName = (slug: string) => {
             <h3 class="font-bold text-xl">
               {findMechanicName(mechanic.id.slug)}
             </h3>
-            <span class="text-gray-500">{mechanic.reason}</span>
+            <span class="text-gray-500 dark:text-gray-300">
+              {mechanic.reason}
+            </span>
           </div>
         </div>
       ))
