@@ -11,6 +11,7 @@ const heroes = defineCollection({
 const mechanics = defineCollection({
   type: "content",
   schema: z.object({
+    id: z.string(),
     title: z.string(),
     heroes: z.array(reference("heroes")),
     note: z.string().optional(),

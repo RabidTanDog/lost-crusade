@@ -1,4 +1,5 @@
 ---
+id: splash
 title: Splash
 heroes: ["voldus", "meiah"]
 strongAgainst:
