@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
-import Image from "../../components/Image.astro";
 import { getUrl } from "../../utils/getUrl";
 
 const mechanics = await getCollection("mechanics");
@@ -15,7 +14,7 @@ const mechanics = await getCollection("mechanics");
         class="bg-white rounded-md flex flex-col border-gray-200 border-2 m-4 p-4 w-48 just items-center hover:drop-shadow-highlight"
         href={getUrl(`/mechanics/${mechanic.data.id}`)}
       >
-        <Image
+        <img
           src={getUrl(`/images/icons/mechanics/${mechanic.data.id}.svg`)}
           class="mb-2"
           width={80}
