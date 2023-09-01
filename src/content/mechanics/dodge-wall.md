@@ -18,6 +18,10 @@ weakAgainst:
       id: "splash",
       reason: "Bonus hits from Splash cannot be dodged. This means single units will die off quickly.",
     },
+    {
+      id: "rebound",
+      reason: "Single troop lines will kill themselves when they attack.",
+    },
   ]
 note: 'To send a "dodge wall", you should send your march with at least one troop of each type, of each level (ie. 45 troops) to help dodge enemy attacks. If you use one of these heroes, you should always use a "dodge wall" strategy — even against line-ups it is weak against.'
 ---

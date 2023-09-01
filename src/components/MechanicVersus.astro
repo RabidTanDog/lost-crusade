@@ -29,7 +29,7 @@ const findMechanicName = (slug: string) => {
     {
       versus?.map((mechanic) => (
         <a
-          class="hover:drop-shadow-highlight"
+          class="mb-4 hover:drop-shadow-highlight last:mb-0"
           href={getUrl(`/mechanics/${mechanic.id.slug}`)}
         >
           <div class="flex flex-row">
