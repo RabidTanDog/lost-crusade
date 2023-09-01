@@ -5,8 +5,8 @@ module.exports = {
     extend: {
       dropShadow: {
         highlight: [
-          "0 0px 7px rgba(200, 200, 200, 0.35)",
-          "0 0px 25px rgba(200, 200, 200, 0.2)",
+          "0 0px 7px rgba(74, 168, 133, 0.35)",
+          "0 0px 25px rgba(34, 211, 238, 0.2)",
         ],
       },
     },
