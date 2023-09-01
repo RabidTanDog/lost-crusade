@@ -11,7 +11,7 @@ const mechanics = await getCollection("mechanics");
   {
     mechanics.map((mechanic) => (
       <a
-        class="bg-white rounded-md flex flex-col border-gray-200 border-2 m-4 p-4 w-48 just items-center hover:drop-shadow-highlight"
+        class="bg-white rounded-md flex flex-col border-gray-200 border-2 m-4 p-4 w-32 just items-center md:w-48 hover:drop-shadow-highlight"
         href={getUrl(`/mechanics/${mechanic.data.id}`)}
       >
         <img
@@ -20,7 +20,7 @@ const mechanics = await getCollection("mechanics");
           width={80}
           height={80}
         />
-        <h3 class="font-bold text-xl">{mechanic.data.title}</h3>
+        <h3 class="font-bold text-xl text-center">{mechanic.data.title}</h3>
       </a>
     ))
   }
